@@ -74,8 +74,6 @@ python minesweeper.py
 
 ## 🧠 Screenshot (Optional)
 
-> You can add a screenshot or gameplay GIF here:
-
 ```markdown
 ![Minesweeper Screenshot](assets/screenshot.png)
 ```
@@ -84,15 +82,19 @@ python minesweeper.py
 
 ## 📌 Notes
 
-- Tested on **Windows 10** with **Python 3.11**
+- Tested on **Windows 11** with **Python 3.11**
 - Feel free to customize colors, icons, or difficulty levels
 
 ---
 
 ## 📜 License
 
-MIT License. Do whatever you want — just don't click the mine 😆
+Do whatever you want — just don't click the mine 😆
 
 ---
+## Contact
 
-Made with ❤️ using PyQt5
+- 📧 gmail : agrimjusta@gmail.com
+- 🔗 LinkedIn : https://in.linkedin.com/in/agrim-justa
+
+
