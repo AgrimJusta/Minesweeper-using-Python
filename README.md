@@ -74,9 +74,10 @@ python minesweeper.py
 
 ## 🧠 Screenshot (Optional)
 
-```markdown
+
 ![Minesweeper Screenshot](assets/Screenshot1.png)
-```
+![Minesweeper Screenshot](assets/Screenshot2.png)
+
 
 ---
 
