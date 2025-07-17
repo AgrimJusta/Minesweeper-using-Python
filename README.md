@@ -72,7 +72,7 @@ python minesweeper.py
 
 ---
 
-## 🧠 Screenshot (Optional)
+## 🧠 Screenshot
 
 
 ![Minesweeper Screenshot](assets/Screenshot1.png)
