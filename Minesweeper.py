@@ -1,7 +1,9 @@
 import sys
 import random
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QPushButton, QLabel, QMessageBox, QGridLayout, QVBoxLayout, QAction, QMenu, QMenuBar
-
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QPushButton, QLabel,
+    QMessageBox, QGridLayout, QVBoxLayout, QAction, QMenu
+)
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtCore import Qt
 
@@ -118,6 +120,28 @@ class GameWidget(QWidget):
                     nx, ny = x + dx, y + dy
                     if 0 <= nx < self.rows and 0 <= ny < self.cols:
                         self.reveal_cell(nx, ny)
+        self.check_win()
+
+    def check_win(self):
+        for row in self.cells:
+            for cell in row:
+                if not cell.is_mine and not cell.revealed:
+                    return
+        self.reveal_all()
+        self.win_popup()
+
+    def win_popup(self):
+        msg = QMessageBox()
+        msg.setWindowTitle("🎉 You Win!")
+        msg.setText("Congratulations! You cleared the board!\nDo you want to play again?")
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msg.setIcon(QMessageBox.Information)
+        result = msg.exec_()
+
+        if result == QMessageBox.Yes:
+            self.window().new_game()
+        else:
+            self.window().close()
 
     def reveal_all(self):
         for row in self.cells:
@@ -165,7 +189,11 @@ class MainWindow(QMainWindow):
         difficulty_menu = QMenu("Difficulty", self)
         game_menu.addMenu(difficulty_menu)
 
-        for name, (rows, cols, mines) in [("Easy", (9, 9, 10)), ("Medium", (16, 16, 40)), ("Hard", (24, 24, 99))]:
+        for name, (rows, cols, mines) in [
+            ("Easy", (9, 9, 10)),
+            ("Medium", (16, 16, 40)),
+            ("Hard", (24, 24, 99))
+        ]:
             act = QAction(name, self)
             act.triggered.connect(lambda _, r=rows, c=cols, m=mines: self.set_difficulty(r, c, m))
             difficulty_menu.addAction(act)
